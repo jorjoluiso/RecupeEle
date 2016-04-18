@@ -70,3 +70,17 @@ class parseXMLFactura(object):
 
     def getFacturaDetalle(self, archivo):
         pass
+
+    def imprimir(self):
+        print("\n")
+        print("Datos Factura")
+        print(("Clave de Acceso:", self.factura.claveAcceso))
+        print(("Docuemto:", self.factura.documento))
+        print(("Nombre Comercial:", self.factura.nombreComercial))
+        print(("Dirección:", self.factura.direccion))
+        print(("Establecimiento:", self.factura.establecimiento))
+        print(("Punto Emisión:", self.factura.puntoEmision))
+        print(("Secuencial:", self.factura.secuencial))
+        print(("Fecha Emisión:", self.factura.fechaEmision))
+        print(("Autorización:", self.factura.autorizacion))
+        print(("Tipo:", self.factura.tipo))

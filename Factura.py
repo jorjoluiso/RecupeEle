@@ -7,6 +7,7 @@ class Factura(ComprobanteElectronico):
 
     def __init__(self):
         self.detalle = []
+        self.tipo = "FACTURA"
 
 
 if __name__ == "__main__":

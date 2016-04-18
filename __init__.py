@@ -1,8 +1,5 @@
 # -*- coding: utf-8 -*-
 #import parseXMLeni as p
-from CargarBaseOracle import *
-from ComprobanteElectronico import *
-from FacturaDetalle import *
 from parseXMLFactura import *
 
 
@@ -24,3 +21,4 @@ if __name__ == "__main__":
         #oracle.disconnect()
         parseFactura = parseXMLFactura()
         parseFactura.getFactura("0704201601109170775200120010030030019921234567817.xml")
+        parseFactura.imprimir()
