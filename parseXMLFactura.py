@@ -23,6 +23,7 @@ class parseXMLFactura(object):
         self.getFacturaFirmada(archivo)
         self.getFacturaCabeza("firmado" + archivo)
         self.getFacturaDetalle("firmado" + archivo)
+        return self.factura
 
     def getFacturaFirmada(self, archivo):
         #Recupero el comprobante electrónico firmado
@@ -37,6 +38,7 @@ class parseXMLFactura(object):
                 f.writelines(i.text)
             f.close
 
+    #Recupera el encabezado de la factura
     def getFacturaCabeza(self, archivo):
         tree = parsexml.parse(archivo)
         root = tree.getroot()
@@ -68,8 +70,34 @@ class parseXMLFactura(object):
         for datosFactura in root.iter("claveAcceso"):
             self.factura.claveAcceso = datosFactura.text
 
+    #Recupera de detalle de la factura
     def getFacturaDetalle(self, archivo):
-        pass
+        tree = parsexml.parse(archivo)
+        root = tree.getroot()
+
+        detalleFactura = []
+        detalles = root.iter("detalle")
+
+        for detalle in detalles:
+            detalle_children = detalle.getchildren()
+            d = FacturaDetalle()
+            for elementos in detalle_children:
+
+                if (elementos.tag == "codigoPrincipal"):
+                    d.codigoPrincipal = elementos.text
+                elif (elementos.tag == "descripcion"):
+                    d.descripcion = elementos.text
+                elif (elementos.tag == "cantidad"):
+                    d.cantidad = elementos.text
+                elif (elementos.tag == "precioUnitario"):
+                    d.precioUnitario = elementos.text
+                elif (elementos.tag == "descuento"):
+                    d.descuento = elementos.text
+                elif (elementos.tag == "precioTotalSinImpuesto"):
+                    d.total = elementos.text
+
+            detalleFactura.append(d)
+        self.factura.detalle = detalleFactura
 
     def imprimir(self):
         print("\n")
@@ -84,3 +112,14 @@ class parseXMLFactura(object):
         print(("Fecha Emisión:", self.factura.fechaEmision))
         print(("Autorización:", self.factura.autorizacion))
         print(("Tipo:", self.factura.tipo))
+
+        print("\n")
+        print("Detalle Factura")
+        for df in self.factura.detalle:
+            print("Código " + df.codigoPrincipal)
+            print("Descripción " + df.descripcion)
+            print("Cantidad " + str(df.cantidad))
+            print("Precio Unitario " + str(df.precioUnitario))
+            print("Descuento " + str(df.descuento))
+            print("Total" + str(df.total))
+            print("\n")
