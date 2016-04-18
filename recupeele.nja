@@ -4,8 +4,8 @@
   "venv": "", 
   "relatedProjects": [], 
   "name": "RecupeEle", 
-  "license": "", 
-  "url": "", 
+  "license": "GNU General Public License v3", 
+  "url": "http://quijotelui.ec", 
   "pythonPath": "python", 
   "preExecScript": "", 
   "additional_builtins": [], 
@@ -25,5 +25,5 @@
   ], 
   "project-type": "", 
   "postExecScript": "", 
-  "description": ""
+  "description": "Programa para recuperar la informaci\u00f3n de los comprobantes electr\u00f3nicos emitidos en Ecuador y almacenarlos en una base de datos."
 }
