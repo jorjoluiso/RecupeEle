@@ -12,16 +12,16 @@ class BaseOracle(object):
 
     def conectar(self):
         try:
-            #con = cx_Oracle.connect('armando/a@127.0.0.1/xe')
-            self.db = cx_Oracle.connect(self.user + '/' + self.password + '@127.0.0.1/XE')
+            #con = cx_Oracle.connect('jorge/j@127.0.0.1/xe')
+            self.db = cx_Oracle.connect(self.user + "/" + self.password + "@" + self.host + "/" + self.sid)
             print(("Conectado a la base Oracle " + (self.db.version)))
             self.cursor = self.db.cursor()
         except cx_Oracle.DatabaseError as e:
             error, = e.args
             if error.code == 1017:
-                print('Please check your credentials.')
+                print("Please check your credentials.")
             else:
-                print(('Database connection error: %s'.format(e)))
+                print(("Database connection error: %s".format(e)))
             # Very important part!
             raise
 
@@ -41,7 +41,7 @@ class BaseOracle(object):
         except cx_Oracle.DatabaseError as e:
             error, = e.args
             if error.code == 955:
-                print('Table already exists')
+                print("Table already exists")
             elif error.code == 1031:
                 print("Insufficient privileges")
             print((error.code))

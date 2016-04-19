@@ -8,7 +8,7 @@ class CargaFacturaOracle(object):
         pass
 
     def carga(self, factura):
-        oracle = BaseOracle("localhost", "armando", "a")
+        oracle = BaseOracle("localhost", "armando", "a", "XE")
         oracle.conectar()
 
         oracle.ejecutar("delete ELE_DOCUMENTOS where CLAVE_ACCESO = '" + factura.claveAcceso + "'")
