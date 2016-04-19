@@ -1,7 +1,7 @@
 from Factura import *
 from Utilidades import *
 import xml.etree.ElementTree as parsexml
-import ntpath
+import tempfile
 
 
 class ParseXMLFactura(object):
@@ -21,8 +21,9 @@ class ParseXMLFactura(object):
             print((self.factura.autorizacion))
 
         self.getFacturaFirmada(archivo)
-        self.getFacturaCabeza("firmado" + archivo)
-        self.getFacturaDetalle("firmado" + archivo)
+
+        self.getFacturaCabeza(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo))
+        self.getFacturaDetalle(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo))
         return self.factura
 
     def getFacturaFirmada(self, archivo):
@@ -34,7 +35,7 @@ class ParseXMLFactura(object):
 
         for i in root.iter("comprobante"):
             print((i.text))
-            with open("firmado" + ntpath.basename(archivo), "w") as f:
+            with open(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo), "w") as f:
                 f.writelines(i.text)
             f.close
 

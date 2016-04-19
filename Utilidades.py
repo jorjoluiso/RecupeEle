@@ -1,3 +1,6 @@
+import ntpath
+
+
 class Utilidades(object):
 
     def __init__(self):
@@ -13,3 +16,9 @@ class Utilidades(object):
         with open(archivo, 'w') as f:
             f.writelines('\n'.join(clean_lines))
         f.close
+
+    #Extrae el nombre del archivo, eliminando la ruta
+    @staticmethod
+    def extraerNombre(rutaArchivo):
+        head, tail = ntpath.split(rutaArchivo)
+        return tail or ntpath.basename(head)
