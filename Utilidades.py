@@ -3,7 +3,7 @@ class Utilidades(object):
     def __init__(self):
         pass
 
-    #Quita los espacios en blanco del archivo
+    #Quita los espacios en blanco del archivo XML
     @staticmethod
     def borrarBlancosArchivo(archivo):
         clean_lines = []
