@@ -2,6 +2,7 @@ from Factura import *
 from Utilidades import *
 import xml.etree.ElementTree as parsexml
 import tempfile
+import os
 
 
 class ParseXMLFactura(object):
@@ -22,8 +23,8 @@ class ParseXMLFactura(object):
 
         self.getFacturaFirmada(archivo)
 
-        self.getFacturaCabeza(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo))
-        self.getFacturaDetalle(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo))
+        self.getFacturaCabeza(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
+        self.getFacturaDetalle(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
         return self.factura
 
     def getFacturaFirmada(self, archivo):
@@ -35,7 +36,7 @@ class ParseXMLFactura(object):
 
         for i in root.iter("comprobante"):
             print((i.text))
-            with open(tempfile.gettempdir() + "/firmado" + Utilidades.extraerNombre(archivo), "w") as f:
+            with open(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo), "w") as f:
                 f.writelines(i.text)
             f.close
 
