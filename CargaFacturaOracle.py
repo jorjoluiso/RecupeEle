@@ -11,7 +11,7 @@ class CargaFacturaOracle(object):
         oracle = BaseOracle("localhost", "armando", "a")
         oracle.conectar()
 
-        oracle.ejecutar("delete ELE_DOCUMENTOS")
+        oracle.ejecutar("delete ELE_DOCUMENTOS where CLAVE_ACCESO = '" + factura.claveAcceso + "'")
 
         oracle.ejecutar("INSERT INTO ELE_DOCUMENTOS VALUES ('"
         + factura.claveAcceso + "','" + factura.documento + "','" + factura.razonSocial + "','"

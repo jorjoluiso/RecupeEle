@@ -10,6 +10,6 @@ if __name__ == "__main__":
         #Imprime objeto Factura
         parseFactura.imprimir()
         carga = CargaFacturaOracle()
-        #carga.carga(factura)
+        carga.carga(factura)
 
 
