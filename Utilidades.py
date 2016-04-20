@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import ntpath
 
 
@@ -13,7 +14,7 @@ class Utilidades(object):
         with open(archivo, 'r') as f:
             lines = f.readlines()
             clean_lines = [l.strip() for l in lines if l.strip()]
-        with open(archivo, 'w') as f:
+        with open(archivo, 'w', encoding='utf8') as f:
             f.writelines('\n'.join(clean_lines))
         f.close
 

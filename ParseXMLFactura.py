@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from Factura import *
 from Utilidades import *
 import xml.etree.ElementTree as parsexml
@@ -97,6 +98,7 @@ class ParseXMLFactura(object):
                     d.descuento = elementos.text
                 elif (elementos.tag == "precioTotalSinImpuesto"):
                     d.total = elementos.text
+
 
             detalleFactura.append(d)
         self.factura.detalle = detalleFactura
