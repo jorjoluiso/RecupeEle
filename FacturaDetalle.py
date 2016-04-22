@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+from Impuesto import *
 
 
 class FacturaDetalle(object):
@@ -8,6 +9,7 @@ class FacturaDetalle(object):
     precioUnitario = None
     descuento = None
     total = None
+    impuesto = None
 
     def __init__(self, codigoPrincipal="", descripcion="", cantidad=0, precioUnitario=0,
                 descuento=0, total=0):
@@ -17,3 +19,4 @@ class FacturaDetalle(object):
         self.precioUnitario = precioUnitario
         self.descuento = descuento
         self.total = total
+        self.impuesto = []

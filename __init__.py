@@ -9,7 +9,7 @@ if __name__ == "__main__":
         factura = parseFactura.getFactura("0704201601109170775200120010030030019921234567817.xml")
         #Imprime objeto Factura
         parseFactura.imprimir()
-        carga = CargaFacturaOracle()
-        carga.carga(factura)
+        #carga = CargaFacturaOracle()
+        #carga.carga(factura)
 
 

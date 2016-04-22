@@ -79,13 +79,15 @@ class ParseXMLFactura(object):
         root = tree.getroot()
 
         detalleFactura = []
+
         detalles = root.iter("detalle")
 
         for detalle in detalles:
             detalle_children = detalle.getchildren()
             d = FacturaDetalle()
+            i = Impuesto()
+            detalleImpuesto = []
             for elementos in detalle_children:
-
                 if (elementos.tag == "codigoPrincipal"):
                     d.codigoPrincipal = elementos.text
                 elif (elementos.tag == "descripcion"):
@@ -98,8 +100,25 @@ class ParseXMLFactura(object):
                     d.descuento = elementos.text
                 elif (elementos.tag == "precioTotalSinImpuesto"):
                     d.total = elementos.text
+                elif (elementos.tag == "impuestos"):
 
+                    for impuestos in elementos:
+                        impuesto_children = impuestos.getchildren()
 
+                        for impuesto in impuesto_children:
+                            print(impuesto.tag, impuesto.text)
+                            if (impuesto.tag == "codigo"):
+                                i.codigo = impuesto.text
+                            elif (impuesto.tag == "codigoPorcentaje"):
+                                i.codigoPorcentaje = impuesto.text
+                            elif (impuesto.tag == "tarifa"):
+                                i.tarifa = impuesto.text
+                            elif (impuesto.tag == "baseImponible"):
+                                i.baseImponible = impuesto.text
+                            elif (impuesto.tag == "valor"):
+                                i.valor = impuesto.text
+                        detalleImpuesto.append(i)
+                d.impuesto = detalleImpuesto
             detalleFactura.append(d)
         self.factura.detalle = detalleFactura
 
@@ -125,5 +144,13 @@ class ParseXMLFactura(object):
             print("Cantidad " + str(df.cantidad))
             print("Precio Unitario " + str(df.precioUnitario))
             print("Descuento " + str(df.descuento))
-            print("Total" + str(df.total))
-            print("\n")
+            print("Total " + str(df.total))
+            print("Impuestos")
+            for i in df.impuesto:
+                print("Código", i.codigo)
+                print("Código porcentaje", i.codigoPorcentaje)
+                print("Tarifa", i.tarifa)
+                print("Valor base", i.baseImponible)
+                print("Valor", i.valor)
+                print("\n")
+
