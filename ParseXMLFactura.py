@@ -145,12 +145,12 @@ class ParseXMLFactura(object):
             print("Precio Unitario " + str(df.precioUnitario))
             print("Descuento " + str(df.descuento))
             print("Total " + str(df.total))
-            print("Impuestos")
+            print(" Impuestos")
             for i in df.impuesto:
-                print("Código", i.codigo)
-                print("Código porcentaje", i.codigoPorcentaje)
-                print("Tarifa", i.tarifa)
-                print("Valor base", i.baseImponible)
-                print("Valor", i.valor)
+                print(" Código", i.codigo)
+                print(" Código porcentaje", i.codigoPorcentaje)
+                print(" Tarifa", i.tarifa)
+                print(" Valor base", i.baseImponible)
+                print(" Valor", i.valor)
                 print("\n")
 
