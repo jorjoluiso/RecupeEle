@@ -21,14 +21,16 @@ class CargaFacturaOracle(object):
         + "', 'dd/mm/yyyy'),'" + factura.autorizacion + "','" + factura.tipo + "')")
 
         i = 1
-        for d in factura.detalle:
+        for det in factura.detalle:
             oracle.ejecutar("INSERT INTO ELE_FACTURA_DETALLES"
             + "(CLAVE_ACCESO_ELE_DOCUMENTOS,NUMFILA,CODIGO_PRINCIPAL,DESCRIPCION,CANTIDAD,"
             + "PRECIO_UNITARIO,DESCUENTO,PRECIO_TOTAL_SIN_IMPUESTO)"
-            + "VALUES ('" + factura.claveAcceso + "'," + str(i) + ",'" + d.codigoPrincipal + "','"
-            + d.descripcion + "'," + str(d.cantidad) + "," + str(d.precioUnitario) + ","
-            + str(d.descuento) + ","
-            + str(d.total) + ")")
+            + "VALUES ('" + factura.claveAcceso + "'," + str(i) + ",'" + det.codigoPrincipal + "','"
+            + det.descripcion + "'," + str(det.cantidad) + "," + str(det.precioUnitario) + ","
+            + str(det.descuento) + ","
+            + str(det.total) + ")")
             i = i + 1
+            for imp in factura.detalle.impuesto:
+                pass
 
         oracle.desconectar()
