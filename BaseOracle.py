@@ -39,6 +39,7 @@ class BaseOracle(object):
         try:
             self.cursor.execute(sql)
             self.db.commit()
+            return self.cursor
         except cx_Oracle.DatabaseError as e:
             error, = e.args
             if error.code == 955:
