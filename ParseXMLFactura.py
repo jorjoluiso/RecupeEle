@@ -36,8 +36,9 @@ class ParseXMLFactura(object):
         print(("Path: ", (ntpath.basename(archivo))))
 
         for i in root.iter("comprobante"):
-            print((i.text))
-            with open(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo), "w", encoding='utf8') as f:
+            #print((i.text))
+            with open(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo), "w",
+            encoding='utf8') as f:
                 f.writelines(i.text)
             f.close
 
@@ -106,7 +107,7 @@ class ParseXMLFactura(object):
                         impuesto_children = impuestos.getchildren()
 
                         for impuesto in impuesto_children:
-                            print(impuesto.tag, impuesto.text)
+                            #print(impuesto.tag, impuesto.text)
                             if (impuesto.tag == "codigo"):
                                 i.codigo = impuesto.text
                             elif (impuesto.tag == "codigoPorcentaje"):
