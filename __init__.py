@@ -2,6 +2,7 @@
 from ParseXMLFactura import *
 from CargaFacturaOracle import *
 
+
 if __name__ == "__main__":
         parseFactura = ParseXMLFactura()
         #factura = parseFactura.getFactura("/home/jorjoluiso/python/RecupeEle/"
