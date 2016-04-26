@@ -37,7 +37,7 @@ class ParseXMLFactura(object):
 
         for i in root.iter("comprobante"):
             print((i.text))
-            with open(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo), "w") as f:
+            with open(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo), "w", encoding='utf8') as f:
                 f.writelines(i.text)
             f.close
 
