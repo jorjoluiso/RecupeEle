@@ -7,6 +7,7 @@ class ConfigDB(object):
     clave = None
     puerto = None
     servicio = None
+    ruta = None
     nombreDB = None
 
     def __init__(self, nombre):
@@ -19,6 +20,15 @@ class ConfigDB(object):
         param["clave"] = "a"
         param["puerto"] = "1521"
         param["servicio"] = "XE"
+
+        with open('base.ini', 'w') as configfile:
+            config.write(configfile)
+
+    def setConfigSqlite(self):
+        config = configparser.ConfigParser()
+        config["SqliteDB"] = {}
+        param = config["SqliteDB"]
+        param["ruta"] = "./ele.db3"
 
         with open('base.ini', 'w') as configfile:
             config.write(configfile)
