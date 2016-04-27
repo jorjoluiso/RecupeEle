@@ -6,9 +6,10 @@ class ConfigDB(object):
     usuario = None
     clave = None
     servicio = None
+    nombre =None
 
-    def __init__(self):
-        pass
+    def __init__(self, nombre):
+        self.nombre = nombre
 
     def setConfigOracle(self):
         config = configparser.ConfigParser()
