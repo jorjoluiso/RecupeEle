@@ -3,9 +3,12 @@ Programa para recuperar la información de los comprobantes electrónicos emitid
 
 Requisitos:
 
-    python 3    --> https://www.python.org/
-    Oracle      --> http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html
-    cx_oracle   --> http://cx-oracle.sourceforge.net/ o pip install cx_Oracle
+    python 3.4 o +      https://www.python.org/
+    Oracle              http://www.oracle.com/technetwork/database/features/instant-client/index-097480.html
+    cx_oracle           pip install cx_Oracle
+    
+    Para python 3.4 instalar Visual Studio 2010 Express C++
+    Para python 3.5 instalar Visual Studio 2015 Community C++
 
 
 http://quijotelui.ec
