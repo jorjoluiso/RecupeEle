@@ -1,13 +1,10 @@
 # -*- coding: utf-8 -*-
 from ParseXMLFactura import *
 from CargaFacturaOracle import *
-from ConfigDB import *
 import sys
 
 if __name__ == "__main__":
-    print("Script python ejecutandose ...", sys.argv[0])
-    configOracle = ConfigDB()
-    configOracle.setConfigOracle()
+
     if len(sys.argv) == 2:
         print("Documento electrónico", sys.argv[1])
         parseFactura = ParseXMLFactura()

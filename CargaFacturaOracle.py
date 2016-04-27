@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 from BaseOracle import *
 from Factura import *
+from ConfigDB import *
 
 
 class CargaFacturaOracle(object):
@@ -9,7 +10,10 @@ class CargaFacturaOracle(object):
         pass
 
     def carga(self, factura):
-        oracle = BaseOracle("192.168.1.11", "armando", "a", "XE")
+        configOra = ConfigDB("oracle")
+        configOra.getConfig()
+
+        oracle = BaseOracle(configOra.maquina, configOra.usuario, configOra, configOra.servicio)
         oracle.conectar()
 
         oracle.ejecutar("delete ELE_DOCUMENTOS where CLAVE_ACCESO = '" + factura.claveAcceso + "'")
