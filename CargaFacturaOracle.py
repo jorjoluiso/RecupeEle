@@ -12,8 +12,8 @@ class CargaFacturaOracle(object):
     def carga(self, factura):
         configOra = ConfigDB("oracle")
         configOra.getConfig()
-
-        oracle = BaseOracle(configOra.maquina, configOra.usuario, configOra, configOra.servicio)
+        print((configOra.maquina, configOra.usuario, configOra.clave, configOra.servicio))
+        oracle = BaseOracle("192.168.1.11", "armando", "a", "XE")
         oracle.conectar()
 
         oracle.ejecutar("delete ELE_DOCUMENTOS where CLAVE_ACCESO = '" + factura.claveAcceso + "'")

@@ -10,6 +10,8 @@ if __name__ == "__main__":
         parseFactura = ParseXMLFactura()
         factura = parseFactura.getFactura(sys.argv[1])
         parseFactura.imprimir()
+        carga = CargaFacturaOracle()
+        carga.carga(factura)
     else:
         print("Por favor añadir la ruta de archivo")
         #parseFactura = ParseXMLFactura()

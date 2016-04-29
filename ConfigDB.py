@@ -12,6 +12,13 @@ class ConfigDB(object):
 
     def __init__(self, nombre):
         self.nombre = nombre
+        self.maquina = ""
+        self.usuario = ""
+        self.clave = ""
+        self.puerto = ""
+        self.servicio = ""
+        self.ruta = ""
+        self.nombreDB = ""
 
     def setConfigOracle(self):
         config = configparser.ConfigParser()
