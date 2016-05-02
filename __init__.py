@@ -14,9 +14,9 @@ if __name__ == "__main__":
         carga.carga(factura)
     else:
         print("Por favor añadir la ruta de archivo")
-        configOra = ConfigDB("oracle")
-        configOra.getConfig()
-        configOra.imprimir()
+        #configOra = ConfigDB("oracle")
+        #configOra.getConfig()
+        #configOra.imprimir()
 
 
         #parseFactura = ParseXMLFactura()

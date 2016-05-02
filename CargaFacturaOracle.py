@@ -12,7 +12,7 @@ class CargaFacturaOracle(object):
     def carga(self, factura):
         cfgOra = ConfigDB("oracle")
         cfgOra.getConfig()
-        cfgOra.imprimir()
+        #cfgOra.imprimir()
 
         oracle = BaseOracle(cfgOra.maquina, cfgOra.usuario, cfgOra.clave, cfgOra.servicio)
 
