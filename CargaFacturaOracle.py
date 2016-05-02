@@ -10,17 +10,20 @@ class CargaFacturaOracle(object):
         pass
 
     def carga(self, factura):
-        configOra = ConfigDB("oracle")
-        configOra.getConfig()
-        print((configOra.maquina, configOra.usuario, configOra.clave, configOra.servicio))
-        oracle = BaseOracle("192.168.1.11", "armando", "a", "XE")
+        cfgOra = ConfigDB("oracle")
+        cfgOra.getConfig()
+        cfgOra.imprimir()
+
+        oracle = BaseOracle(cfgOra.maquina, cfgOra.usuario, cfgOra.clave, cfgOra.servicio)
+
         oracle.conectar()
 
         oracle.ejecutar("delete ELE_DOCUMENTOS where CLAVE_ACCESO = '" + factura.claveAcceso + "'")
 
         oracle.ejecutar("INSERT INTO ELE_DOCUMENTOS VALUES ('"
         + factura.claveAcceso + "','" + factura.documento + "','" + factura.razonSocial + "','"
-        + factura.nombreComercial + "','" + factura.direccion + "','" + factura.establecimiento + "','"
+        + factura.nombreComercial + "','" + factura.direccion + "','" + factura.establecimiento
+        + "','"
         + factura.puntoEmision + "','" + factura.secuencial + "',TO_DATE('" + factura.fechaEmision
         + "', 'dd/mm/yyyy'),'" + factura.autorizacion + "','" + factura.tipo + "')")
 

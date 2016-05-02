@@ -14,8 +14,9 @@ class BaseOracle(object):
     def conectar(self):
         try:
             #con = cx_Oracle.connect('jorge/j@127.0.0.1/xe')
-            print(self.user + "/" + self.password + "@" + self.host + "/" + self.sid)
-            self.db = cx_Oracle.connect(self.user + "/" + self.password + "@" + self.host + "/" + self.sid)
+            print((self.user + "/" + self.password + "@" + self.host + "/" + self.sid))
+            self.db = cx_Oracle.connect(self.user + "/" + self.password + "@" + self.host + "/"
+            + self.sid)
             print(("Conectado a la base Oracle " + (self.db.version)))
             self.cursor = self.db.cursor()
         except cx_Oracle.DatabaseError as e:

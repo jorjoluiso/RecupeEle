@@ -1,4 +1,5 @@
 import configparser
+import os
 
 
 class ConfigDB(object):
@@ -10,15 +11,14 @@ class ConfigDB(object):
     ruta = None
     nombreDB = None
 
-    def __init__(self, nombre):
-        self.nombre = nombre
+    def __init__(self, nombreDB):
         self.maquina = ""
         self.usuario = ""
         self.clave = ""
         self.puerto = ""
         self.servicio = ""
         self.ruta = ""
-        self.nombreDB = ""
+        self.nombreDB = nombreDB
 
     def setConfigOracle(self):
         config = configparser.ConfigParser()
@@ -49,6 +49,17 @@ class ConfigDB(object):
 
     def getConfig(self):
         config = configparser.ConfigParser()
-        config.read('base.ini')
-        if self.nombre == "oracle":
+        config.read(os.path.dirname(__file__) + os.sep + 'base.ini')
+        print("Archivo de configuración", (os.path.dirname(__file__) + os.sep + 'base.ini'))
+        if self.nombreDB == "oracle":
             self.getConfigOracle(config)
+
+    def imprimir(self):
+        print(("Nombre de base de datos", self.nombreDB))
+        print(("Máquina", self.maquina))
+        print(("Usuario", self.usuario))
+        print(("Clave", self.clave))
+        print(("Puerto", self.puerto))
+        print(("Servicio", self.servicio))
+        print(("Ruta", self.ruta))
+
