@@ -86,9 +86,11 @@ class ParseXMLFactura(object):
         for detalle in detalles:
             detalle_children = detalle.getchildren()
             d = FacturaDetalle()
-            i = Impuesto()
-            detalleImpuesto = []
+
+
             for elementos in detalle_children:
+
+                print(elementos.tag, elementos.text)
                 if (elementos.tag == "codigoPrincipal"):
                     d.codigoPrincipal = elementos.text
                 elif (elementos.tag == "descripcion"):
@@ -102,12 +104,12 @@ class ParseXMLFactura(object):
                 elif (elementos.tag == "precioTotalSinImpuesto"):
                     d.total = elementos.text
                 elif (elementos.tag == "impuestos"):
-
+                    detalleImpuesto = []
                     for impuestos in elementos:
                         impuesto_children = impuestos.getchildren()
-
+                        i = Impuesto()
                         for impuesto in impuesto_children:
-                            #print(impuesto.tag, impuesto.text)
+                            print(" ", impuesto.tag, impuesto.text)
                             if (impuesto.tag == "codigo"):
                                 i.codigo = impuesto.text
                             elif (impuesto.tag == "codigoPorcentaje"):
@@ -119,7 +121,7 @@ class ParseXMLFactura(object):
                             elif (impuesto.tag == "valor"):
                                 i.valor = impuesto.text
                         detalleImpuesto.append(i)
-                d.impuesto = detalleImpuesto
+                    d.impuesto = detalleImpuesto
             detalleFactura.append(d)
         self.factura.detalle = detalleFactura
 
