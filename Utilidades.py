@@ -11,11 +11,11 @@ class Utilidades(object):
     @staticmethod
     def borrarBlancosArchivo(archivo):
         clean_lines = []
-        with open(archivo, 'r') as f:
+        with open(archivo, "r", encoding="utf8") as f:
             lines = f.readlines()
             clean_lines = [l.strip() for l in lines if l.strip()]
-        with open(archivo, 'w', encoding='utf8') as f:
-            f.writelines('\n'.join(clean_lines))
+        with open(archivo, "w", encoding="utf8") as f:
+            f.writelines("\n".join(clean_lines))
         f.close
 
     #Extrae el nombre del archivo, eliminando la ruta
