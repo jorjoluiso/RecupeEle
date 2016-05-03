@@ -28,7 +28,7 @@ class CargaFacturaOracle(object):
         + "', 'dd/mm/yyyy'),'" + factura.autorizacion + "','" + factura.tipo + "')")
 
         i = 1
-        j = 1
+        
         for det in factura.detalle:
             oracle.ejecutar("INSERT INTO ELE_FACTURA_DETALLES"
             + "(CLAVE_ACCESO_ELE_DOCUMENTOS,NUMFILA,CODIGO_PRINCIPAL,DESCRIPCION,CANTIDAD,"
@@ -37,7 +37,7 @@ class CargaFacturaOracle(object):
             + det.descripcion + "'," + str(det.cantidad) + "," + str(det.precioUnitario) + ","
             + str(det.descuento) + ","
             + str(det.total) + ")")
-
+            j = 1
             for imp in det.impuesto:
                 oracle.ejecutar("INSERT INTO ELE_FACTURA_IMPUESTOS(CLAVE_ACCESO_ELE_DOCUMENTOS,"
                 + "NUM_FILA_ELE_FACTURA_DETALLES,NUM_FILA,CODIGO,CODIGO_PORCENTAJE,TARIFA,"
