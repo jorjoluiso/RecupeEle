@@ -26,6 +26,7 @@ class ParseXMLFactura(object):
 
         self.getFacturaCabeza(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
         self.getFacturaDetalle(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
+        Utilidades.mensajero(self.factura.claveAcceso)
         return self.factura
 
     def getFacturaFirmada(self, archivo):

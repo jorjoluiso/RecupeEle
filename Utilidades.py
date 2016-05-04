@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import ntpath
-
+import tempfile
+import os
 
 class Utilidades(object):
 
@@ -23,3 +24,10 @@ class Utilidades(object):
     def extraerNombre(rutaArchivo):
         head, tail = ntpath.split(rutaArchivo)
         return tail or ntpath.basename(head)
+
+    #Crea un archivo temporal con la clave de acceso
+    @staticmethod
+    def mensajero(clave):
+        with open(tempfile.gettempdir() + os.sep + "clave.ca", "w", encoding="utf8") as f:
+            f.writelines(clave)
+        f.close
