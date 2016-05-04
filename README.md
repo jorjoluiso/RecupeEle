@@ -10,6 +10,6 @@ Requisitos:
     En Windows
     Para python 3.4 instalar Visual Studio 2010 Express C++
     Para python 3.5 instalar Visual Studio 2015 Community C++
-
+	Instant client para windows XP usar la versión 11g
 
 http://quijotelui.ec

@@ -87,7 +87,6 @@ class ParseXMLFactura(object):
             detalle_children = detalle.getchildren()
             d = FacturaDetalle()
 
-
             for elementos in detalle_children:
 
                 print(elementos.tag, elementos.text)
