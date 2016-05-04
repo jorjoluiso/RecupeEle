@@ -14,5 +14,8 @@ if __name__ == "__main__":
         carga.carga(factura)
     else:
         print("Por favor añadir la ruta de archivo")
+<<<<<<< HEAD
 
+=======
+>>>>>>> e852283d06ed8940b18440e05b236ddb69e92144
 
