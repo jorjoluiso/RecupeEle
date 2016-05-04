@@ -31,3 +31,4 @@ class Utilidades(object):
         with open(tempfile.gettempdir() + os.sep + "clave.ca", "w", encoding="utf8") as f:
             f.writelines(clave)
         f.close
+        print(("Clave de Acceso:", clave, tempfile.gettempdir() + os.sep + "clave.ca"))

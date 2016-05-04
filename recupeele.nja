@@ -9,7 +9,7 @@
   "pythonPath": "python", 
   "preExecScript": "", 
   "additional_builtins": [], 
-  "programParams": "", 
+  "programParams": "/data/Work/python/RecupeEle/2104201601179000573900120080100001373840013738417.xml", 
   "indentation": 4, 
   "PYTHONPATH": "", 
   "supported-extensions": [

@@ -20,21 +20,19 @@ class ParseXMLFactura(object):
 
         for i in root.iter("numeroAutorizacion"):
             self.factura.autorizacion = i.text
-            print((self.factura.autorizacion))
+            #print((self.factura.autorizacion))
 
         self.getFacturaFirmada(archivo)
 
         self.getFacturaCabeza(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
         self.getFacturaDetalle(tempfile.gettempdir() + os.sep + Utilidades.extraerNombre(archivo))
-        Utilidades.mensajero(self.factura.claveAcceso)
+
         return self.factura
 
     def getFacturaFirmada(self, archivo):
         #Recupero el comprobante electrónico firmado
         tree = parsexml.parse(archivo)
         root = tree.getroot()
-
-        print(("Path: ", (ntpath.basename(archivo))))
 
         for i in root.iter("comprobante"):
             #print((i.text))
@@ -90,7 +88,7 @@ class ParseXMLFactura(object):
 
             for elementos in detalle_children:
 
-                print(elementos.tag, elementos.text)
+                #print(elementos.tag, elementos.text)
                 if (elementos.tag == "codigoPrincipal"):
                     d.codigoPrincipal = elementos.text
                 elif (elementos.tag == "descripcion"):
@@ -109,7 +107,7 @@ class ParseXMLFactura(object):
                         impuesto_children = impuestos.getchildren()
                         i = Impuesto()
                         for impuesto in impuesto_children:
-                            print(" ", impuesto.tag, impuesto.text)
+                            #print(" ", impuesto.tag, impuesto.text)
                             if (impuesto.tag == "codigo"):
                                 i.codigo = impuesto.text
                             elif (impuesto.tag == "codigoPorcentaje"):
