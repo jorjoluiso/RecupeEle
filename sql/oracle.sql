@@ -44,7 +44,7 @@ CREATE TABLE ele_factura_detalles
     precio_total_sin_impuesto   NUMBER ,
     codigo_articulo             VARCHAR2 (10) ,
     unidad_medida               VARCHAR2 (10) ,
-    estado                      VARCHAR2 (10)
+    estado                      VARCHAR2 (10) DEFAULT 'ACTIVO'
   ) ;
 COMMENT ON TABLE ele_factura_detalles
 IS
