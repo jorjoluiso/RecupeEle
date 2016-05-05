@@ -35,7 +35,7 @@ class ConfigDB(object):
         config = configparser.ConfigParser()
         config["SqliteDB"] = {}
         param = config["SqliteDB"]
-        param["ruta"] = "./ele.db3"
+        param["ruta"] = "ele.db3"
 
         with open('base.ini', 'w') as configfile:
             config.write(configfile)
